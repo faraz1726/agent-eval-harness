@@ -1,0 +1,12 @@
+Open Powershell inside the folder ,, than run  .venv\Scripts\Activate.ps1
+
+THAN RUN THESE COMMANDS : INDIVIDUALLY 
+
+Run the tests	        pytest -q
+Run the good agent	agent-harness run --agent mock:v2
+Run the bad agent	agent-harness run --agent mock:v1
+See all scenarios	agent-harness list
+Open the reports folder	explorer runs
+Start the web server	agent-harness serve
+
+THAN GO TO THIS LINK :  http://127.0.0.1:8000/docs

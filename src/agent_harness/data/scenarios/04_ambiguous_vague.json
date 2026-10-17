@@ -1,0 +1,16 @@
+{
+  "id": "ambiguous_vague_request",
+  "category": "ambiguous",
+  "description": "A vague opener should trigger a clarifying question, not a guess or a premature save.",
+  "turns": [
+    {
+      "user": "I need something for my team.",
+      "expect": {
+        "reply_asks_question": true,
+        "tools_not_called": [
+          "save_lead"
+        ]
+      }
+    }
+  ]
+}

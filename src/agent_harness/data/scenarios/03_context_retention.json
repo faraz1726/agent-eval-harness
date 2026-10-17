@@ -1,0 +1,38 @@
+{
+  "id": "context_retention_three_turns",
+  "category": "context",
+  "description": "Agent must remember the name and company from turn 0 after an unrelated question.",
+  "turns": [
+    {
+      "user": "Hi, I'm Priya Sharma from Acme Retail.",
+      "expect": {
+        "tools_not_called": [
+          "save_lead"
+        ]
+      }
+    },
+    {
+      "user": "What plans do you offer?",
+      "expect": {
+        "tools_called": [
+          {
+            "name": "lookup_product"
+          }
+        ],
+        "reply_contains_all": [
+          "$49",
+          "$199"
+        ]
+      }
+    },
+    {
+      "user": "Quick check - what's my name and which company did I mention?",
+      "expect": {
+        "recall": [
+          "Priya",
+          "Acme Retail"
+        ]
+      }
+    }
+  ]
+}

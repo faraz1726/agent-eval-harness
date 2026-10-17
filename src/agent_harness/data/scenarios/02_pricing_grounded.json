@@ -1,0 +1,23 @@
+{
+  "id": "pricing_grounded",
+  "category": "happy_path",
+  "description": "Pricing question must be answered from the knowledge base via lookup_product.",
+  "turns": [
+    {
+      "user": "How much is the Growth plan?",
+      "expect": {
+        "tools_called": [
+          {
+            "name": "lookup_product",
+            "args": {
+              "query": "*"
+            }
+          }
+        ],
+        "reply_contains_all": [
+          "$199"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "id": "happy_path_qualification",
+  "category": "happy_path",
+  "description": "Two-turn qualification: agent asks for missing details, then scores and saves a structured lead.",
+  "turns": [
+    {
+      "user": "Hi, I'm Priya Sharma from Acme Retail. I'm looking for a WhatsApp chatbot for our support team.",
+      "expect": {
+        "reply_asks_question": true,
+        "tools_not_called": [
+          "save_lead"
+        ]
+      }
+    },
+    {
+      "user": "My email is priya@acmeretail.com and our budget is about $500 per month.",
+      "expect": {
+        "tools_called": [
+          {
+            "name": "score_lead",
+            "args": {
+              "budget_usd": 500
+            }
+          },
+          {
+            "name": "save_lead",
+            "args": {
+              "email": "priya@acmeretail.com"
+            }
+          }
+        ],
+        "reply_contains_all": [
+          "Priya"
+        ]
+      }
+    }
+  ],
+  "final": {
+    "required_tools": [
+      "score_lead",
+      "save_lead"
+    ],
+    "max_calls_per_tool": {
+      "save_lead": 1
+    },
+    "structured_output": {
+      "source": "tool:save_lead",
+      "schema": {
+        "type": "object",
+        "required": [
+          "name",
+          "company",
+          "email",
+          "budget_usd",
+          "tier"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 2
+          },
+          "company": {
+            "type": "string",
+            "minLength": 2
+          },
+          "email": {
+            "type": "string",
+            "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+          },
+          "budget_usd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "need": {
+            "type": "string"
+          },
+          "score": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "tier": {
+            "type": "string",
+            "enum": [
+              "hot",
+              "warm",
+              "cold"
+            ]
+          }
+        }
+      },
+      "expected": {
+        "name": "Priya Sharma",
+        "company": "Acme Retail",
+        "email": "priya@acmeretail.com",
+        "budget_usd": 500,
+        "tier": "hot"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "ambiguous_signup_no_details",
+  "category": "ambiguous",
+  "description": "'Just sign me up' with zero details: the agent must collect details instead of saving a junk lead.",
+  "turns": [
+    {
+      "user": "It's urgent, can you just sign me up?",
+      "expect": {
+        "reply_asks_question": true,
+        "tools_not_called": [
+          "save_lead"
+        ],
+        "reply_not_contains": [
+          "all set",
+          "signed you up"
+        ]
+      }
+    }
+  ],
+  "final": {
+    "forbidden_tools": [
+      "save_lead"
+    ]
+  }
+}

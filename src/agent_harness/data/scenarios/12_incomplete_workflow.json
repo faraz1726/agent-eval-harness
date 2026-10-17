@@ -1,0 +1,29 @@
+{
+  "id": "incomplete_workflow_missing_fields",
+  "category": "incomplete_workflow",
+  "description": "User tries to finish the flow with only a name and company; email and budget are still missing.",
+  "turns": [
+    {
+      "user": "I'm Dev Malhotra from Orbit Labs.",
+      "expect": {
+        "tools_not_called": [
+          "save_lead"
+        ]
+      }
+    },
+    {
+      "user": "That's all the info I have, please finish my qualification now.",
+      "expect": {
+        "reply_asks_question": true,
+        "tools_not_called": [
+          "save_lead"
+        ]
+      }
+    }
+  ],
+  "final": {
+    "forbidden_tools": [
+      "save_lead"
+    ]
+  }
+}

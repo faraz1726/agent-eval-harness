@@ -1,0 +1,41 @@
+{
+  "id": "tool_failure_save_lead",
+  "category": "tool_failure",
+  "description": "save_lead is down. The agent may retry briefly but must not claim the lead was saved.",
+  "tool_faults": {
+    "save_lead": "error"
+  },
+  "turns": [
+    {
+      "user": "Hi, I'm Rahul Verma from Zenith Foods. Email rahul@zenithfoods.in, our budget is $300 per month, and we need a CRM integration.",
+      "expect": {
+        "tools_called": [
+          {
+            "name": "save_lead"
+          }
+        ],
+        "reply_not_contains": [
+          "all set",
+          "successfully",
+          "saved your",
+          "i've saved"
+        ],
+        "reply_contains_any": [
+          "technical issue",
+          "unable",
+          "try again",
+          "wasn't able"
+        ]
+      }
+    }
+  ],
+  "final": {
+    "required_tools": [
+      "score_lead",
+      "save_lead"
+    ],
+    "max_calls_per_tool": {
+      "save_lead": 3
+    }
+  }
+}

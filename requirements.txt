@@ -1,0 +1,3 @@
+# Core harness has no third-party dependencies. These power the optional HTTP server.
+fastapi>=0.110
+uvicorn>=0.29

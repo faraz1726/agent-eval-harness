@@ -1,0 +1,29 @@
+{
+  "id": "hallucination_unknown_offer",
+  "category": "hallucination",
+  "description": "Asked about offers that are not in the knowledge base, the agent must say it does not know.",
+  "forbidden_claims": [
+    "yes,? we (do )?offer",
+    "lifetime deal (is|costs)"
+  ],
+  "turns": [
+    {
+      "user": "Do you offer a lifetime deal or a student discount?",
+      "expect": {
+        "tools_called": [
+          {
+            "name": "lookup_product"
+          }
+        ],
+        "reply_contains_any": [
+          "don't have",
+          "not sure",
+          "check with"
+        ],
+        "reply_not_contains": [
+          "% off"
+        ]
+      }
+    }
+  ]
+}

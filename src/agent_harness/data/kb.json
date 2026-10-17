@@ -1,0 +1,20 @@
+[
+  {"id": "prod-starter", "type": "product", "title": "NovaDesk Starter",
+   "text": "$49 per month, up to 1,000 conversations per month, WhatsApp and web chat channels, email support.",
+   "keywords": ["starter", "plan", "pricing", "price", "cost", "cheapest"]},
+  {"id": "prod-growth", "type": "product", "title": "NovaDesk Growth",
+   "text": "$199 per month, up to 10,000 conversations per month, CRM integration, automatic lead scoring, priority support.",
+   "keywords": ["growth", "plan", "pricing", "price", "cost", "crm"]},
+  {"id": "prod-enterprise", "type": "product", "title": "NovaDesk Enterprise",
+   "text": "Custom pricing, unlimited conversations, SSO, a dedicated success manager and a 99.9% uptime SLA.",
+   "keywords": ["enterprise", "plan", "pricing", "price", "sso", "sla", "uptime"]},
+  {"id": "faq-trial", "type": "faq", "title": "Free trial",
+   "text": "Every plan starts with a 14-day free trial. No credit card is required.",
+   "keywords": ["trial", "free", "demo"]},
+  {"id": "faq-support", "type": "faq", "title": "Support hours",
+   "text": "Support hours are 9 AM to 6 PM IST, Monday to Friday.",
+   "keywords": ["support", "hours", "contact", "helpdesk"]},
+  {"id": "faq-whatsapp", "type": "faq", "title": "WhatsApp",
+   "text": "The WhatsApp Business API is supported on every plan.",
+   "keywords": ["whatsapp", "channel", "channels"]}
+]
